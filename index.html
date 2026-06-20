@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>动物庄园 · 查卡</title>
+  <meta name="description" content="桌游《动物庄园》在线查卡：50+ 张卡牌图鉴、分项介绍、规则书与 FAQ。" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <div class="brand">
+        <h1 id="site-title">动物庄园 <span>· 查卡</span></h1>
+        <p class="tagline" id="site-subtitle">卡牌图鉴 · 规则书 · 常见问题</p>
+      </div>
+      <nav class="tabs" id="tabs">
+        <button class="tab active" data-view="cards">卡牌图鉴</button>
+        <button class="tab" data-view="deck">组卡</button>
+        <button class="tab" data-view="rules">规则书</button>
+        <button class="tab" data-view="faq">FAQ</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- ============ 卡牌图鉴 ============ -->
+    <section id="view-cards" class="view active">
+      <div class="toolbar">
+        <input type="search" id="search" placeholder="搜索卡名 / 技能 / 效果文字…" autocomplete="off" />
+        <div class="filters">
+          <div class="filter-group" id="filter-color">
+            <button class="chip active" data-color="all">全部颜色</button>
+            <button class="chip c-red" data-color="红">红</button>
+            <button class="chip c-yellow" data-color="黄">黄</button>
+            <button class="chip c-blue" data-color="蓝">蓝</button>
+            <button class="chip c-green" data-color="绿">绿</button>
+            <button class="chip c-purple" data-color="紫">紫</button>
+          </div>
+          <div class="filter-group" id="filter-type">
+            <button class="chip active" data-type="all">全部类型</button>
+            <button class="chip" data-type="character">角色牌</button>
+            <button class="chip" data-type="function">功能牌</button>
+          </div>
+        </div>
+      </div>
+      <p class="count" id="count"></p>
+      <div class="card-grid" id="grid"></div>
+    </section>
+
+    <!-- ============ 规则书 ============ -->
+    <section id="view-rules" class="view">
+      <div class="rules-layout">
+        <nav class="rules-toc" id="rules-toc" aria-label="规则目录"></nav>
+        <article class="doc" id="rules-doc"></article>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section id="view-faq" class="view">
+      <article class="doc" id="faq-doc"></article>
+    </section>
+
+    <!-- ============ 组卡 ============ -->
+    <section id="view-deck" class="view">
+      <div class="deck-layout">
+        <!-- 卡池 -->
+        <div class="deck-pool">
+          <div class="pool-toolbar">
+            <div class="seg" id="mode-seg">
+              <button class="seg-btn active" data-mode="standard">标准</button>
+              <button class="seg-btn" data-mode="chaos">乱局</button>
+            </div>
+            <div class="seg" id="view-seg" title="显示方式">
+              <button class="seg-btn active" data-vm="grid">大图</button>
+              <button class="seg-btn" data-vm="list">列表</button>
+            </div>
+            <label class="switch" id="sub-toggle-wrap">
+              <input type="checkbox" id="sub-toggle" />
+              <span class="sw-track"><span class="sw-thumb"></span></span>
+              <span class="sw-text">看副卡</span>
+            </label>
+            <span class="mode-hint" id="mode-hint"></span>
+          </div>
+          <div class="filter-group pool-colors" id="deck-filter-color">
+            <button class="chip active" data-color="all">全部</button>
+            <button class="chip c-red" data-color="红">红</button>
+            <button class="chip c-yellow" data-color="黄">黄</button>
+            <button class="chip c-blue" data-color="蓝">蓝</button>
+            <button class="chip c-green" data-color="绿">绿</button>
+            <button class="chip c-purple" data-color="紫">紫</button>
+          </div>
+          <div class="pool-grid" id="pool-grid"></div>
+        </div>
+
+        <!-- 当前牌组 + 存档 -->
+        <aside class="deck-side">
+          <section class="panel">
+            <header class="panel-h">
+              <h3>当前牌组</h3>
+              <button class="link-btn" id="deck-new">＋ 新建</button>
+            </header>
+            <div class="deck-status" id="deck-status"></div>
+            <div class="deck-list" id="deck-list"></div>
+            <div class="deck-namebar">
+              <input type="text" id="deck-name" placeholder="牌组名…" maxlength="24" />
+              <button class="btn-primary" id="deck-save">保存</button>
+              <button class="link-btn" id="deck-clear" title="清空当前牌组">清空</button>
+            </div>
+            <div class="export-row">
+              <button class="btn-export" id="export-pdf" title="300ppi A4 拼版，每页 9 张，PDF">⬇ A4 打印 PDF</button>
+              <button class="btn-export" id="export-tts" title="每行 5 张无缝拼版，PNG">⬇ TTS 图包 PNG</button>
+            </div>
+            <div class="export-msg" id="export-msg"></div>
+          </section>
+
+          <section class="panel">
+            <header class="panel-h"><h3>已保存的牌组</h3></header>
+            <div class="saved-list" id="saved-list"></div>
+          </section>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 卡牌详情弹窗 ============ -->
+  <div class="modal-backdrop" id="modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modal-close" aria-label="关闭">×</button>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p id="site-footer-1">《动物庄园》是一款 2 人卡牌对战游戏。本站为非官方查卡工具。</p>
+      <p id="site-footer-2">发现卡牌描述有误？点开任意卡牌右下角「反馈问题」即可告诉作者。</p>
+    </div>
+  </footer>
+
+  <!-- 卡牌悬浮信息 / 关键词释义 气泡（必须在脚本之前存在） -->
+  <div id="card-tip" class="card-tip" hidden></div>
+  <div id="kw-tip" class="kw-tip" hidden></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/content.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/vendor/jspdf.umd.min.js"></script>
+  <script src="js/deckbuilder.js"></script>
+</body>
+</html>
