@@ -144,6 +144,10 @@ a{color:var(--accent);}
 }
 .kw-tip[hidden]{display:none;}
 
+/* 卡牌引用 [[卡名]] */
+.cardref{color:var(--accent);font-weight:600;text-decoration:underline dotted;text-underline-offset:2px;cursor:help;}
+.cardref:hover{background:rgba(201,161,74,.14);border-radius:3px;}
+
 /* ---- feedback ---- */
 .fb{margin-top:20px;border-top:1px dashed var(--line);padding-top:16px;}
 .fb-toggle{background:var(--panel-2);border:1px solid var(--line);color:var(--ink);

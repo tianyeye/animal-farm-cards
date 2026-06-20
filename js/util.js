@@ -18,10 +18,18 @@
     });
   }
 
-  // 把效果文字里的 {关键词} 渲染成高亮，释义存 data-desc（由统一气泡显示，不用浏览器原生 title）
+  // [[卡名]] -> 卡牌引用 span（悬浮显示该卡详情）；name 须为已转义文本
+  function wrapCardRefs(s) {
+    return s.replace(/\[\[([^\]]+)\]\]/g, function (_, name) {
+      return '<span class="cardref" data-card="' + name + '">' + name + "</span>";
+    });
+  }
+
+  // 把效果文字里的 {关键词} 渲染成高亮（data-desc 存释义），[[卡名]] 渲染成卡牌引用
   function renderEffect(text) {
     if (!text) return "";
-    return esc(text).replace(/\{([^}]+)\}/g, function (_, inner) {
+    var s = wrapCardRefs(esc(text));
+    return s.replace(/\{([^}]+)\}/g, function (_, inner) {
       var base = inner.replace(/^已/, "").replace(/[0-9Xx]+$/, "");
       var desc = KW[base] || KW[inner] || "";
       var data = desc ? ' data-desc="' + esc(desc) + '"' : "";

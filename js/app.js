@@ -327,6 +327,33 @@
     document.addEventListener("scroll", hide, true);
   })();
 
+  // ---------- 卡牌引用 [[卡名]] 悬浮：显示整张卡详情（与组卡悬浮一致）----------
+  (function setupCardRef() {
+    var tip = document.getElementById("card-tip");
+    if (!tip) return;
+    var byName = {};
+    CARDS.forEach(function (c) { byName[c.name] = c; });
+    var cur = null;
+    function show(elm, x, y) {
+      var c = byName[elm.getAttribute("data-card")];
+      if (!c) { hide(); return; }
+      if (elm !== cur) { tip.innerHTML = AF.cardInfoHtml(c); cur = elm; tip.hidden = false; }
+      var pad = 16, w = tip.offsetWidth, h = tip.offsetHeight;
+      var L = x + pad, T = y + pad;
+      if (L + w > window.innerWidth - 8) L = x - w - pad;
+      if (L < 8) L = 8;
+      if (T + h > window.innerHeight - 8) T = window.innerHeight - h - 8;
+      if (T < 8) T = 8;
+      tip.style.left = L + "px"; tip.style.top = T + "px";
+    }
+    function hide() { if (cur) { tip.hidden = true; cur = null; } }
+    document.addEventListener("mousemove", function (e) {
+      var el = e.target.closest && e.target.closest(".cardref[data-card]");
+      if (el) show(el, e.clientX, e.clientY); else hide();
+    });
+    document.addEventListener("scroll", hide, true);
+  })();
+
   // ---------- 应用站点设置（来自 config/site.txt）----------
   function applySite() {
     function setText(id, v) { var n = document.getElementById(id); if (n && v) n.textContent = v; }

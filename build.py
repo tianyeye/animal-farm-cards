@@ -98,6 +98,9 @@ def inline(s, kw):
     s = esc_html(s)
     s = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", s)
     s = re.sub(r"\*(.+?)\*", r"<i>\1</i>", s)
+    # [[卡名]] -> 卡牌引用（网页悬浮显示该卡详情）
+    s = re.sub(r"\[\[([^\]]+)\]\]",
+               lambda m: '<span class="cardref" data-card="' + m.group(1) + '">' + m.group(1) + "</span>", s)
     s = wrap_keywords(s, kw)
     return s
 
