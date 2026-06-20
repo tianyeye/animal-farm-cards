@@ -15,7 +15,7 @@ window.CARDS = [
     "declEffect": "你的红色角色夺取对位1个资源。",
     "bound": "风车小队",
     "tags": "",
-    "image": "assets/cards/Red_Base_Leader_01.png",
+    "image": "assets/cards/Red_Base_Leader_01.webp",
     "pairId": "Red_Base_Sub_01"
   },
   {
@@ -33,7 +33,7 @@ window.CARDS = [
     "declEffect": "你的红色角色的对位{消耗1}。",
     "bound": "雪球",
     "tags": "",
-    "image": "assets/cards/Red_Base_Sub_01.png",
+    "image": "assets/cards/Red_Base_Sub_01.webp",
     "pairId": "Red_Base_Leader_01"
   },
   {
@@ -51,7 +51,7 @@ window.CARDS = [
     "declEffect": "选择1名资源最高的角色，其{消耗X}（X为场上资源最高与最低的差值）",
     "bound": "动物主义/七诫",
     "tags": "",
-    "image": "assets/cards/Red_Base_Leader_02.png",
+    "image": "assets/cards/Red_Base_Leader_02.webp",
     "pairId": "Red_Base_Sub_02"
   },
   {
@@ -67,7 +67,7 @@ window.CARDS = [
     "billName": "七诫",
     "billEffect": "资源最高的所有角色影响力-4",
     "bound": "老少校",
-    "image": "assets/cards/Red_Base_Sub_02.png",
+    "image": "assets/cards/Red_Base_Sub_02.webp",
     "pairId": "Red_Base_Leader_02"
   },
   {
@@ -85,7 +85,7 @@ window.CARDS = [
     "declEffect": "{勤奋}；移动红冠母亲团。",
     "bound": "扰动战术/一切为了孩子",
     "tags": "",
-    "image": "assets/cards/Red_Base_Leader_03.png",
+    "image": "assets/cards/Red_Base_Leader_03.webp",
     "pairId": "Red_Base_Sub_03"
   },
   {
@@ -101,7 +101,7 @@ window.CARDS = [
     "billName": "一切为了孩子",
     "billEffect": "资源最低的所有角色影响力+4",
     "bound": "红冠母亲团",
-    "image": "assets/cards/Red_Base_Sub_03.png",
+    "image": "assets/cards/Red_Base_Sub_03.webp",
     "pairId": "Red_Base_Leader_03"
   },
   {
@@ -119,7 +119,7 @@ window.CARDS = [
     "declEffect": "横置鸽拉松，摸1张牌。",
     "bound": "鸽毛信/通讯架构",
     "tags": "",
-    "image": "assets/cards/Red_Base_Leader_04.png",
+    "image": "assets/cards/Red_Base_Leader_04.webp",
     "pairId": "Red_Base_Sub_04"
   },
   {
@@ -135,7 +135,7 @@ window.CARDS = [
     "billName": "新航线",
     "billEffect": "行动阶段，双方获得以下可选行动：移动一名角色，每回合限一次。",
     "bound": "鸽拉松",
-    "image": "assets/cards/Red_Base_Sub_04.png",
+    "image": "assets/cards/Red_Base_Sub_04.webp",
     "pairId": "Red_Base_Leader_04"
   },
   {
@@ -153,7 +153,7 @@ window.CARDS = [
     "declEffect": "你的红色角色{募集1}。",
     "bound": "地下组织/团体游行法案",
     "tags": "",
-    "image": "assets/cards/Red_Base_Leader_05.png",
+    "image": "assets/cards/Red_Base_Leader_05.webp",
     "pairId": "Red_Base_Sub_05"
   },
   {
@@ -169,7 +169,7 @@ window.CARDS = [
     "billName": "通讯架构",
     "billEffect": "角色宣言时可以{消耗}其它同色角色的资源。",
     "bound": "灰耗子",
-    "image": "assets/cards/Red_Base_Sub_05.png",
+    "image": "assets/cards/Red_Base_Sub_05.webp",
     "pairId": "Red_Base_Leader_05"
   },
   {
@@ -187,7 +187,7 @@ window.CARDS = [
     "declEffect": "若莫莉影响力为0{募集2}。",
     "bound": "逃离庄园/保留私有财产",
     "tags": "",
-    "image": "assets/cards/Yellow_Base_Leader_01.png",
+    "image": "assets/cards/Yellow_Base_Leader_01.webp",
     "pairId": "Yellow_Base_Sub_01"
   },
   {
@@ -203,7 +203,7 @@ window.CARDS = [
     "billName": "保留私有财产",
     "billEffect": "维持阶段离场结算前，没有资源的角色{募集1}。",
     "bound": "莫莉",
-    "image": "assets/cards/Yellow_Base_Sub_01.png",
+    "image": "assets/cards/Yellow_Base_Sub_01.webp",
     "pairId": "Yellow_Base_Leader_01"
   },
   {
@@ -221,7 +221,7 @@ window.CARDS = [
     "declEffect": "为那只猫和对位各{募集2}，由你选择募集来源。",
     "bound": "乘虚而入/贸易税",
     "tags": "",
-    "image": "assets/cards/Yellow_Base_Leader_02.png",
+    "image": "assets/cards/Yellow_Base_Leader_02.webp",
     "pairId": "Yellow_Base_Sub_02"
   },
   {
@@ -237,7 +237,7 @@ window.CARDS = [
     "billName": "贸易税",
     "billEffect": "执行带有募集、转移资源、夺取效果的行动时，对手{募集1}.",
     "bound": "那只猫",
-    "image": "assets/cards/Yellow_Base_Sub_02.png",
+    "image": "assets/cards/Yellow_Base_Sub_02.webp",
     "pairId": "Yellow_Base_Leader_02"
   },
   {
@@ -255,7 +255,7 @@ window.CARDS = [
     "declEffect": "金不换{募集1}。",
     "bound": "资产转移/财政紧缩",
     "tags": "",
-    "image": "assets/cards/Yellow_Base_Leader_03.png",
+    "image": "assets/cards/Yellow_Base_Leader_03.webp",
     "pairId": "Yellow_Base_Sub_03"
   },
   {
@@ -271,7 +271,7 @@ window.CARDS = [
     "billName": "财政紧缩",
     "billEffect": "所有角色资源不可被夺取或由行动效果{消耗}。",
     "bound": "金不换",
-    "image": "assets/cards/Yellow_Base_Sub_03.png",
+    "image": "assets/cards/Yellow_Base_Sub_03.webp",
     "pairId": "Yellow_Base_Leader_03"
   },
   {
@@ -289,7 +289,7 @@ window.CARDS = [
     "declEffect": "横置波拉尼奥与对位。",
     "bound": "欺软怕硬/商品化和平",
     "tags": "",
-    "image": "assets/cards/Yellow_Base_Leader_04.png",
+    "image": "assets/cards/Yellow_Base_Leader_04.webp",
     "pairId": "Yellow_Base_Sub_04"
   },
   {
@@ -305,7 +305,7 @@ window.CARDS = [
     "billName": "商品化和平",
     "billEffect": "竞选阶段开始时，双方可以{消耗5}使一个选区视为平局。",
     "bound": "波拉尼奥",
-    "image": "assets/cards/Yellow_Base_Sub_04.png",
+    "image": "assets/cards/Yellow_Base_Sub_04.webp",
     "pairId": "Yellow_Base_Leader_04"
   },
   {
@@ -323,7 +323,7 @@ window.CARDS = [
     "declEffect": "{勤奋}；将你的1名角色的2个资源转移给货郎稀奇，然后重整该角色。",
     "bound": "头奖/集换中心",
     "tags": "",
-    "image": "assets/cards/Yellow_Base_Leader_05.png",
+    "image": "assets/cards/Yellow_Base_Leader_05.webp",
     "pairId": "Yellow_Base_Sub_05"
   },
   {
@@ -339,7 +339,7 @@ window.CARDS = [
     "billName": "集换中心",
     "billEffect": "行动阶段，为双方玩家增加以下可选行动：将1名角色的全部资源转移至对手角色，然后你的该角色回手。",
     "bound": "货郎稀奇",
-    "image": "assets/cards/Yellow_Base_Sub_05.png",
+    "image": "assets/cards/Yellow_Base_Sub_05.webp",
     "pairId": "Yellow_Base_Leader_05"
   },
   {
@@ -391,7 +391,7 @@ window.CARDS = [
     "declEffect": "{审查}对手1张手牌或你的1张在场角色牌。",
     "bound": "午夜修宪/新七诫",
     "tags": "",
-    "image": "assets/cards/Blue_Base_Leader_01.png",
+    "image": "assets/cards/Blue_Base_Leader_01.webp",
     "pairId": "Blue_Base_Sub_01"
   },
   {
@@ -407,7 +407,7 @@ window.CARDS = [
     "billName": "新七诫",
     "billEffect": "{已审查}的功能牌无法作为手段打出或弃置募集资金。",
     "bound": "吱嘎",
-    "image": "assets/cards/Blue_Base_Sub_01.png",
+    "image": "assets/cards/Blue_Base_Sub_01.webp",
     "pairId": "Blue_Base_Leader_01"
   },
   {
@@ -425,7 +425,7 @@ window.CARDS = [
     "declEffect": "双方各弃1张牌，然后{审查}各自牌堆顶1张牌。",
     "bound": "神父的告解室/蜜糖山传说",
     "tags": "",
-    "image": "assets/cards/Blue_Base_Leader_02.png",
+    "image": "assets/cards/Blue_Base_Leader_02.webp",
     "pairId": "Blue_Base_Sub_02"
   },
   {
@@ -441,7 +441,7 @@ window.CARDS = [
     "billName": "蜜糖山传说",
     "billEffect": "资源获取阶段，玩家可以选择少摸1张牌，然后将3个自然资源分配给任意角色。",
     "bound": "摩西",
-    "image": "assets/cards/Blue_Base_Sub_02.png",
+    "image": "assets/cards/Blue_Base_Sub_02.webp",
     "pairId": "Blue_Base_Leader_02"
   },
   {
@@ -459,7 +459,7 @@ window.CARDS = [
     "declEffect": "选择场上或{已审查}角色的1个宣言行动，由变色龙免费执行。",
     "bound": "两面派/新闻学联盟",
     "tags": "",
-    "image": "assets/cards/Blue_Base_Leader_03.png",
+    "image": "assets/cards/Blue_Base_Leader_03.webp",
     "pairId": "Blue_Base_Sub_03"
   },
   {
@@ -475,7 +475,7 @@ window.CARDS = [
     "billName": "新闻学联盟",
     "billEffect": "{已审查}的功能牌可以由双方支付费用并打出（无视颜色）。",
     "bound": "变色龙",
-    "image": "assets/cards/Blue_Base_Sub_03.png",
+    "image": "assets/cards/Blue_Base_Sub_03.webp",
     "pairId": "Blue_Base_Leader_03"
   },
   {
@@ -493,7 +493,7 @@ window.CARDS = [
     "declEffect": "{审查}对手1张手牌，如果是角色牌，可以额外{审查}对手1张手牌。",
     "bound": "缄默不言/记录在案",
     "tags": "",
-    "image": "assets/cards/Blue_Base_Leader_04.png",
+    "image": "assets/cards/Blue_Base_Leader_04.webp",
     "pairId": "Blue_Base_Sub_04"
   },
   {
@@ -509,7 +509,7 @@ window.CARDS = [
     "billName": "记录在案",
     "billEffect": "行动阶段开始时，双方{审查}弃牌堆顶的1张牌。",
     "bound": "穆里埃尔",
-    "image": "assets/cards/Blue_Base_Sub_04.png",
+    "image": "assets/cards/Blue_Base_Sub_04.webp",
     "pairId": "Blue_Base_Leader_04"
   },
   {
@@ -527,7 +527,7 @@ window.CARDS = [
     "declEffect": "选择1名角色，其{募集4}，然后将其横置。",
     "bound": "两条腿更好/领袖宣传费",
     "tags": "",
-    "image": "assets/cards/Blue_Base_Leader_05.png",
+    "image": "assets/cards/Blue_Base_Leader_05.webp",
     "pairId": "Blue_Base_Sub_05"
   },
   {
@@ -543,7 +543,7 @@ window.CARDS = [
     "billName": "领袖宣传费",
     "billEffect": "行动阶段结束时，影响力最高的角色进行一次维持费用结算。",
     "bound": "绵羊合唱团",
-    "image": "assets/cards/Blue_Base_Sub_05.png",
+    "image": "assets/cards/Blue_Base_Sub_05.webp",
     "pairId": "Blue_Base_Leader_05"
   },
   {
@@ -561,7 +561,7 @@ window.CARDS = [
     "declEffect": "{勤奋}；横置拳击手，摸1张牌，你的其他绿色角色各获得1个自然资源。",
     "bound": "不眠不休/风车蓝图",
     "tags": "",
-    "image": "assets/cards/Green_Base_Leader_01.png",
+    "image": "assets/cards/Green_Base_Leader_01.webp",
     "pairId": "Green_Base_Sub_01"
   },
   {
@@ -577,7 +577,7 @@ window.CARDS = [
     "billName": "风车蓝图",
     "billEffect": "行动阶段结束时，所有绿色角色获得2个自然资源。",
     "bound": "拳击手",
-    "image": "assets/cards/Green_Base_Sub_01.png",
+    "image": "assets/cards/Green_Base_Sub_01.webp",
     "pairId": "Green_Base_Leader_01"
   },
   {
@@ -595,7 +595,7 @@ window.CARDS = [
     "declEffect": "选择1名角色，每有1个空位其获得1个自然资源，若其为绿则额外获得1个。",
     "bound": "警觉/平民互助会",
     "tags": "",
-    "image": "assets/cards/Green_Base_Leader_02.png",
+    "image": "assets/cards/Green_Base_Leader_02.webp",
     "pairId": "Green_Base_Sub_02"
   },
   {
@@ -611,7 +611,7 @@ window.CARDS = [
     "billName": "平民互助会",
     "billEffect": "空位的影响力视为3。",
     "bound": "苜蓿",
-    "image": "assets/cards/Green_Base_Sub_02.png",
+    "image": "assets/cards/Green_Base_Sub_02.webp",
     "pairId": "Green_Base_Leader_02"
   },
   {
@@ -629,7 +629,7 @@ window.CARDS = [
     "declEffect": "{抢先}；使小树枝离场。",
     "bound": "老树枝",
     "tags": "",
-    "image": "assets/cards/Green_Base_Leader_03.png",
+    "image": "assets/cards/Green_Base_Leader_03.webp",
     "pairId": "Green_Base_Sub_03"
   },
   {
@@ -647,7 +647,7 @@ window.CARDS = [
     "declEffect": "{抢先}；从弃牌堆选择1名角色回手。",
     "bound": "小树枝",
     "tags": "",
-    "image": "assets/cards/Green_Base_Sub_03.png",
+    "image": "assets/cards/Green_Base_Sub_03.webp",
     "pairId": "Green_Base_Leader_03"
   },
   {
@@ -665,7 +665,7 @@ window.CARDS = [
     "declEffect": "使1名角色{疲劳}。",
     "bound": "冷眼旁观/无政府主义",
     "tags": "",
-    "image": "assets/cards/Green_Base_Leader_04.png",
+    "image": "assets/cards/Green_Base_Leader_04.webp",
     "pairId": "Green_Base_Sub_04"
   },
   {
@@ -681,7 +681,7 @@ window.CARDS = [
     "billName": "无政府主义",
     "billEffect": "竞选阶段，所有选区获得的选票-1.",
     "bound": "本杰明",
-    "image": "assets/cards/Green_Base_Sub_04.png",
+    "image": "assets/cards/Green_Base_Sub_04.webp",
     "pairId": "Green_Base_Leader_04"
   },
   {
@@ -699,7 +699,7 @@ window.CARDS = [
     "declEffect": "{抢先}；使你的下一个行动具有{抢先}。",
     "bound": "自由放牧/牧场计划",
     "tags": "",
-    "image": "assets/cards/Green_Base_Leader_05.png",
+    "image": "assets/cards/Green_Base_Leader_05.webp",
     "pairId": "Green_Base_Sub_05"
   },
   {
@@ -715,7 +715,7 @@ window.CARDS = [
     "billName": "牧场计划",
     "billEffect": "空位的对位维持费用+4.",
     "bound": "五桶合作社",
-    "image": "assets/cards/Green_Base_Sub_05.png",
+    "image": "assets/cards/Green_Base_Sub_05.webp",
     "pairId": "Green_Base_Leader_05"
   },
   {
@@ -733,7 +733,7 @@ window.CARDS = [
     "declEffect": "{独裁}；横置拿破仑对位角色。",
     "bound": "突击检查/宵禁令",
     "tags": "",
-    "image": "assets/cards/Purple_Base_Leader_01.png",
+    "image": "assets/cards/Purple_Base_Leader_01.webp",
     "pairId": "Purple_Base_Sub_01"
   },
   {
@@ -749,7 +749,7 @@ window.CARDS = [
     "billName": "宵禁令",
     "billEffect": "行动阶段时，不能重整角色；重整阶段时，每名玩家最多重整1名角色。",
     "bound": "拿破仑",
-    "image": "assets/cards/Purple_Base_Sub_01.png",
+    "image": "assets/cards/Purple_Base_Sub_01.webp",
     "pairId": "Purple_Base_Leader_01"
   },
   {
@@ -767,7 +767,7 @@ window.CARDS = [
     "declEffect": "选择你的1名角色，将其资源全部转移给另一名角色。",
     "bound": "替死鬼/领袖高于一切",
     "tags": "",
-    "image": "assets/cards/Purple_Base_Leader_02.png",
+    "image": "assets/cards/Purple_Base_Leader_02.webp",
     "pairId": "Purple_Base_Sub_02"
   },
   {
@@ -783,7 +783,7 @@ window.CARDS = [
     "billName": "领袖高于一切",
     "billEffect": "竞选阶段，影响力最高的角色胜利时视为{完胜}。",
     "bound": "粉眼",
-    "image": "assets/cards/Purple_Base_Sub_02.png",
+    "image": "assets/cards/Purple_Base_Sub_02.webp",
     "pairId": "Purple_Base_Leader_02"
   },
   {
@@ -801,7 +801,7 @@ window.CARDS = [
     "declEffect": "{独裁}；选择1名{疲劳}角色离场。",
     "bound": "追猎/墓地税",
     "tags": "",
-    "image": "assets/cards/Purple_Base_Leader_03.png",
+    "image": "assets/cards/Purple_Base_Leader_03.webp",
     "pairId": "Purple_Base_Sub_03"
   },
   {
@@ -817,7 +817,7 @@ window.CARDS = [
     "billName": "墓地税",
     "billEffect": "角色横置或离场时，若其还有资源，需要将2个资源转移至对位。",
     "bound": "小小田",
-    "image": "assets/cards/Purple_Base_Sub_03.png",
+    "image": "assets/cards/Purple_Base_Sub_03.webp",
     "pairId": "Purple_Base_Leader_03"
   },
   {
@@ -835,7 +835,7 @@ window.CARDS = [
     "declEffect": "{傀儡4}.",
     "bound": "酷刑/游行禁令",
     "tags": "",
-    "image": "assets/cards/Purple_Base_Leader_04.png",
+    "image": "assets/cards/Purple_Base_Leader_04.webp",
     "pairId": "Purple_Base_Sub_04"
   },
   {
@@ -851,7 +851,7 @@ window.CARDS = [
     "billName": "游行禁令",
     "billEffect": "角色不能移动或回手。",
     "bound": "九犬护卫队",
-    "image": "assets/cards/Purple_Base_Sub_04.png",
+    "image": "assets/cards/Purple_Base_Sub_04.webp",
     "pairId": "Purple_Base_Leader_04"
   },
   {
@@ -869,7 +869,7 @@ window.CARDS = [
     "declEffect": "{独裁}；移动公牛将军，然后目标选区进行一次维持费用结算。",
     "bound": "全票通过/大独裁者",
     "tags": "",
-    "image": "assets/cards/Purple_Base_Leader_05.png",
+    "image": "assets/cards/Purple_Base_Leader_05.webp",
     "pairId": "Purple_Base_Sub_05"
   },
   {
@@ -885,7 +885,7 @@ window.CARDS = [
     "billName": "勇者斗兽场",
     "billEffect": "宣言具有{独裁}的角色影响力+5，其对位影响力-5.",
     "bound": "公牛将军",
-    "image": "assets/cards/Purple_Base_Sub_05.png",
+    "image": "assets/cards/Purple_Base_Sub_05.webp",
     "pairId": "Purple_Base_Leader_05"
   },
   {
