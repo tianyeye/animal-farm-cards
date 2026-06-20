@@ -117,7 +117,7 @@
 
     return (
       '<div class="m-img">' + imgHtml + "</div>" +
-      '<div class="m-info">' +
+      '<div class="m-info c-' + esc(c.colorKey || "") + '">' +
       '<div class="m-head"><h2>' + esc(c.name) + "</h2></div>" +
       '<div class="m-tags">' + AF.cardTagsHtml(c) + "</div>" +
       body +

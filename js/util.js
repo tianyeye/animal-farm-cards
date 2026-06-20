@@ -56,7 +56,8 @@
   function typeLabel(c) { return cardKind(c).full; }
   function roleRibbon(c) {
     var k = cardKind(c);
-    return '<span class="role-rib r-' + k.cls + '" title="' + esc(k.full) + '">' +
+    // 角标主题色跟随卡牌派系色（c-red/c-yellow/...）
+    return '<span class="role-rib r-' + k.cls + " c-" + (c.colorKey || "") + '" title="' + esc(k.full) + '">' +
       k.short + (k.type === "func" ? ICON_FUNC : ICON_CHAR) + "</span>";
   }
 
