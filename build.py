@@ -12,6 +12,9 @@ import csv
 import os
 import json
 import re
+import sys
+import shutil
+import subprocess
 
 # ---------------------------------------------------------------- 路径
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -264,6 +267,19 @@ def write_js(path, header, body):
 GEN = "// 由 build.py 从 config/ 自动生成，请勿手改。改内容请编辑 config/ 后重跑 build.py"
 
 
+def run_images():
+    """调用 node 脚本，给卡图打水印并压成 WebP（需 node + sharp）。"""
+    node = shutil.which("node")
+    if not node:
+        print("! 未找到 Node.js，跳过卡图生成。装好 Node 后运行：npm install sharp 再 python build.py --images")
+        return
+    mjs = os.path.join(HERE, "tools", "optimize-images.mjs")
+    print("生成带水印的卡图（node + sharp）…")
+    r = subprocess.run([node, mjs], cwd=HERE)
+    if r.returncode != 0:
+        print("! 卡图生成失败。若提示找不到 sharp，请先在项目根目录运行：npm install sharp")
+
+
 def main():
     kw = read_keywords()
     cards, have = build_cards()
@@ -284,4 +300,8 @@ def main():
 
 
 if __name__ == "__main__":
+    # python build.py            只生成内容（卡表/规则/FAQ/设置）
+    # python build.py --images   先给卡图打水印并压缩，再生成内容
+    if "--images" in sys.argv:
+        run_images()
     main()

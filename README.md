@@ -119,15 +119,17 @@ python build.py
 
 卡图存放在 `assets/cards/<编号>.webp`，是从美术大 PNG 压缩来的（同分辨率 744×1039 = 63×88mm@300ppi，保留透明圆角，每张约 200KB，**总计约 11MB，国内加载快**；导出打印质量不受影响）。
 
-平时改卡表/规则**不用**碰图片。只有**美术更新了卡图**时才需要重新压缩：
+卡图上带有**试玩水印**（对角平铺、半透明），文字来自 `config/site.txt` 的 `watermark1`/`watermark2`，可随时改。水印是在「PNG→WebP」这一步打上去的，每次都从干净的源 PNG 重新生成，**只会有一层水印，重复运行不会叠加**。
+
+平时改卡表/规则**不用**碰图片。只有**美术更新了卡图、或想改水印文字**时才需要重新生成：
 
 ```bash
-npm install sharp        # 装一次
-node tools/optimize-images.mjs   # 读 4.25导出_圆角 的 PNG → 生成 webp
-python build.py          # 让网站引用新图
+npm install sharp           # 装一次（项目根目录）
+python build.py --images    # 给卡图打水印+压成 webp，并重新生成内容（一步到位）
 ```
 
-卡图的「编号 → 源文件名」映射写在 `tools/optimize-images.mjs` 的 `IMAGE_MAP` 里；导出顺序/数量变了改那里。
+> 也可以分开跑：`node tools/optimize-images.mjs`（只做图片）再 `python build.py`（只做内容）。
+> 卡图的「编号 → 源文件名」映射写在 `tools/optimize-images.mjs` 的 `IMAGE_MAP` 里；导出顺序/数量变了改那里。
 
 ### 关于无卡图的 4 张
 

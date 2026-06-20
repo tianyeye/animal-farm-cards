@@ -1,0 +1,24 @@
+{
+  "name": "animal-farm-cards",
+  "version": "1.0.0",
+  "description": "桌游《动物庄园》的在线查卡网站：54 张卡牌图鉴（其中 50 张有卡图）、分项介绍、规则书与 FAQ，并且每张卡都能一键反馈问题到作者邮箱。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tianyeye/animal-farm-cards.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/tianyeye/animal-farm-cards/issues"
+  },
+  "homepage": "https://github.com/tianyeye/animal-farm-cards#readme",
+  "dependencies": {
+    "sharp": "^0.35.2"
+  }
+}

@@ -198,7 +198,7 @@
       .then(function (r) { return r.json().catch(function () { return {}; }); })
       .then(function () {
         msg.className = "fb-msg ok";
-        msg.textContent = "✓ 反馈已提交，谢谢你！（若是本站首次提交，作者需先在邮箱点一次确认链接才会收到后续反馈）";
+        msg.textContent = "✓ 反馈已提交，谢谢你！（如果需要更及时的回复，请加官方QQ群：1084138439）";
         form.reset();
         btn.disabled = false;
       })
