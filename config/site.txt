@@ -6,3 +6,8 @@ subtitle = 卡牌图鉴 · 规则书 · 常见问题
 feedback_email = dogtian@foxmail.com
 footer1 = 《动物庄园》是一款 2 人卡牌对战游戏。本站为非官方查卡工具。
 footer2 = 发现卡牌描述有误？点开任意卡牌右下角「反馈问题」即可告诉作者。
+
+# 卡图 CDN：国内直连 GitHub 卡图慢/打不开时，走 jsDelivr 加速。
+# 留空 = 用相对路径（本地预览时建议留空）。
+# 若 cdn.jsdelivr.net 也打不开，可换成 https://fastly.jsdelivr.net/gh/... 或 https://gcore.jsdelivr.net/gh/...
+cdn_base = https://cdn.jsdelivr.net/gh/tianyeye/animal-farm-cards@main

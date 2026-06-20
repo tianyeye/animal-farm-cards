@@ -37,7 +37,7 @@
 
   function thumb(c) {
     return c.image
-      ? '<img src="' + esc(c.image) + '" alt="' + esc(c.name) + '" loading="lazy">'
+      ? '<img src="' + esc(AF.imgUrl(c.image)) + '" alt="' + esc(c.name) + '" loading="lazy">'
       : '<div class="noimg">暂无图<br>' + esc(c.name) + "</div>";
   }
   function dot(c) { return '<span class="cdot c-' + (COLOR_CLASS[c.color] || "") + '"></span>'; }
@@ -300,8 +300,12 @@
   }
   function loadImg(src) {
     return new Promise(function (res, rej) {
-      var im = new Image(); im.onload = function () { res(im); };
-      im.onerror = function () { rej(new Error("无法加载图片：" + src)); }; im.src = src;
+      var im = new Image();
+      // 走 CDN 时需要匿名跨域，否则导出会污染画布；jsDelivr 带 CORS 头，安全
+      if (/^https?:/i.test(src)) im.crossOrigin = "anonymous";
+      im.onload = function () { res(im); };
+      im.onerror = function () { rej(new Error("无法加载图片：" + src)); };
+      im.src = src;
     });
   }
   function deckName() { return ($("deck-name").value.trim() || "未命名牌组"); }
@@ -340,7 +344,7 @@
     var jobs = cards.map(function (c, i) {
       var x = (i % cols) * CARD_W_PX, y = Math.floor(i / cols) * CARD_H_PX;
       if (!c.image) { drawPlaceholderCtx(ctx, x, y, CARD_W_PX, CARD_H_PX, c); return Promise.resolve(); }
-      return loadImg(c.image).then(function (im) { ctx.drawImage(im, x, y, CARD_W_PX, CARD_H_PX); });
+      return loadImg(AF.imgUrl(c.image)).then(function (im) { ctx.drawImage(im, x, y, CARD_W_PX, CARD_H_PX); });
     });
     Promise.all(jobs).then(function () {
       cv.toBlob(function (b) {
@@ -363,7 +367,7 @@
     var gw = cols * CARD_W_MM, gh = rows * CARD_H_MM;
     var mx = (210 - gw) / 2, my = (297 - gh) / 2;
 
-    var jobs = cards.map(function (c) { return c.image ? loadImg(c.image).then(function (im) { return { c: c, im: im }; }, function () { return { c: c, im: null }; }) : Promise.resolve({ c: c, im: null }); });
+    var jobs = cards.map(function (c) { return c.image ? loadImg(AF.imgUrl(c.image)).then(function (im) { return { c: c, im: im }; }, function () { return { c: c, im: null }; }) : Promise.resolve({ c: c, im: null }); });
     Promise.all(jobs).then(function (items) {
       for (var i = 0; i < items.length; i++) {
         if (i > 0 && i % per === 0) doc.addPage();

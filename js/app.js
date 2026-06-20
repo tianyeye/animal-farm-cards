@@ -37,7 +37,7 @@
   }
 
   function thumbHtml(c) {
-    if (c.image) return '<img src="' + esc(c.image) + '" alt="' + esc(c.name) + '" loading="lazy">';
+    if (c.image) return '<img src="' + esc(AF.imgUrl(c.image)) + '" alt="' + esc(c.name) + '" loading="lazy">';
     return '<div class="noimg">暂无卡图<br>' + esc(c.name) + "</div>";
   }
 
@@ -85,7 +85,7 @@
 
   function modalHtml(c) {
     var imgHtml = c.image
-      ? '<img src="' + esc(c.image) + '" alt="' + esc(c.name) + '">'
+      ? '<img src="' + esc(AF.imgUrl(c.image)) + '" alt="' + esc(c.name) + '">'
       : '<div class="noimg">暂无卡图</div>';
 
     var body = AF.cardFieldsHtml(c);

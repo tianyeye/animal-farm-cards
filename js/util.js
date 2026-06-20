@@ -2,7 +2,15 @@
 (function () {
   "use strict";
   var KW = window.KEYWORDS || {};
+  var SITE = window.SITE || {};
   var COLOR_CLASS = { "红": "red", "黄": "yellow", "蓝": "blue", "绿": "green", "紫": "purple" };
+
+  // 卡图地址：若配置了 cdn_base（jsDelivr），相对路径前面加上 CDN 前缀（国内加速）
+  var CDN = (SITE.cdn_base || "").replace(/\/+$/, "");
+  function imgUrl(p) {
+    if (!p || /^https?:/i.test(p)) return p;
+    return CDN ? CDN + "/" + p : p;
+  }
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"]/g, function (m) {
@@ -84,6 +92,7 @@
 
   window.AF = {
     esc: esc,
+    imgUrl: imgUrl,
     renderEffect: renderEffect,
     typeLabel: typeLabel,
     cardKind: cardKind,
