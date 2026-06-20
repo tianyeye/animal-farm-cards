@@ -100,6 +100,18 @@
       body += '<div class="field"><div class="label">绑定</div><div class="val">' + esc(c.bound) + "</div></div>";
     }
 
+    // 这张卡的常见问题（faq.md 里用「卡牌：名字」关联）
+    var cardFaqs = (window.FAQ || []).filter(function (f) {
+      return f.cards && f.cards.indexOf(c.name) !== -1;
+    });
+    if (cardFaqs.length) {
+      body += '<div class="field m-faq"><div class="label">这张卡的常见问题</div>' +
+        cardFaqs.map(function (f) {
+          return '<div class="faq-item"><div class="faq-q"><span class="faq-qtext">' + f.q +
+            "</span></div><div class=\"faq-a\">" + f.a + "</div></div>";
+        }).join("") + "</div>";
+    }
+
     // 反馈表单
     body += feedbackHtml(c);
 
@@ -141,6 +153,10 @@
     // 配对卡跳转
     modalBody.querySelectorAll(".pair-link").forEach(function (a) {
       a.addEventListener("click", function () { openModal(a.dataset.pair); });
+    });
+    // 卡内 FAQ 折叠
+    modalBody.querySelectorAll(".m-faq .faq-q").forEach(function (q) {
+      q.addEventListener("click", function () { q.parentElement.classList.toggle("open"); });
     });
     // 反馈展开
     var toggle = modalBody.querySelector(".fb-toggle");
@@ -240,16 +256,34 @@
     }
   }
 
+  // 一条 FAQ 折叠项（q/a 已是 build 生成的 HTML，直接插入，勿再转义）
+  function faqItemNode(item) {
+    var node = el('<div class="faq-item"><div class="faq-q"><span class="faq-qtext">' + item.q +
+      "</span></div><div class=\"faq-a\">" + item.a + "</div></div>");
+    node.querySelector(".faq-q").addEventListener("click", function () { node.classList.toggle("open"); });
+    return node;
+  }
+
+  var faqCat = "all";
   function renderFaq() {
     var doc = document.getElementById("faq-doc");
-    doc.innerHTML = '<h2>常见问题 FAQ</h2>';
-    (window.FAQ || []).forEach(function (item) {
-      var node = el(
-        '<div class="faq-item"><div class="faq-q">' + esc(item.q) + "</div>" +
-        '<div class="faq-a">' + item.a + "</div></div>"
-      );
-      node.querySelector(".faq-q").addEventListener("click", function () { node.classList.toggle("open"); });
-      doc.appendChild(node);
+    var faqs = window.FAQ || [];
+    var cats = [];
+    faqs.forEach(function (f) { if (f.cat && cats.indexOf(f.cat) === -1) cats.push(f.cat); });
+    var chips = '<button class="chip' + (faqCat === "all" ? " active" : "") + '" data-cat="all">全部</button>' +
+      cats.map(function (c) {
+        return '<button class="chip' + (faqCat === c ? " active" : "") + '" data-cat="' + esc(c) + '">' + esc(c) + "</button>";
+      }).join("");
+    doc.innerHTML = '<h2>常见问题 FAQ</h2>' +
+      (cats.length ? '<div class="faq-filter filter-group">' + chips + "</div>" : "") +
+      '<div class="faq-list" id="faq-list"></div>';
+    var list = doc.querySelector("#faq-list");
+    faqs.filter(function (f) { return faqCat === "all" || f.cat === faqCat; })
+      .forEach(function (item) { list.appendChild(faqItemNode(item)); });
+    var filter = doc.querySelector(".faq-filter");
+    if (filter) filter.addEventListener("click", function (e) {
+      var b = e.target.closest(".chip"); if (!b) return;
+      faqCat = b.dataset.cat; renderFaq();
     });
   }
 

@@ -175,6 +175,7 @@
       '<span class="ds-flag">' + (valid ? "✓ 合法" : "✗ 不合法") + "</span></div>" +
       (bars ? '<div class="cbars">' + bars + "</div>" : "") +
       (DB.msg ? '<div class="ds-msg">' + esc(DB.msg) + "</div>" : "");
+    var fc = $("deck-fab-count"); if (fc) fc.textContent = n;  // 移动端抽屉按钮上的张数
   }
 
   function renderDeckList() {
@@ -446,6 +447,15 @@
     $("deck-name").addEventListener("keydown", function (e) { if (e.key === "Enter") saveDeck(); });
     $("export-pdf").addEventListener("click", exportPDF);
     $("export-tts").addEventListener("click", exportTTS);
+
+    // 移动端：右侧抽屉开关
+    var dside = document.querySelector(".deck-side");
+    function setDrawer(open) {
+      dside.classList.toggle("open", open);
+      $("deck-backdrop").classList.toggle("show", open);
+    }
+    $("deck-fab").addEventListener("click", function () { setDrawer(!dside.classList.contains("open")); });
+    $("deck-backdrop").addEventListener("click", function () { setDrawer(false); });
 
     bindTips($("pool-grid")); bindTips($("deck-list"));
 

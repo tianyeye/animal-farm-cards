@@ -192,12 +192,21 @@ a{color:var(--accent);}
 .glossary .gi b{color:var(--accent);}
 
 /* FAQ accordion */
+.faq-filter{margin-bottom:18px;}
 .faq-item{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden;}
-.faq-q{padding:14px 18px;cursor:pointer;font-weight:600;display:flex;justify-content:space-between;gap:12px;}
-.faq-q::after{content:"+";color:var(--accent);font-size:1.2rem;}
+.faq-q{padding:14px 18px;cursor:pointer;font-weight:600;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+.faq-qtext{flex:1;}
+.faq-q::after{content:"+";color:var(--accent);font-size:1.2rem;line-height:1.4;}
 .faq-item.open .faq-q::after{content:"−";}
 .faq-a{padding:0 18px;max-height:0;overflow:hidden;transition:.2s;color:var(--ink-dim);}
-.faq-item.open .faq-a{padding:0 18px 16px;max-height:600px;}
+.faq-item.open .faq-a{padding:0 18px 16px;max-height:800px;}
+
+/* 卡牌弹窗内的 FAQ */
+.m-faq .faq-item{margin-bottom:8px;background:var(--bg);}
+.m-faq .faq-q{padding:9px 13px;font-size:.92rem;font-weight:600;}
+.m-faq .faq-q::after{font-size:1.05rem;}
+.m-faq .faq-a{padding:0 13px;font-size:.9rem;}
+.m-faq .faq-item.open .faq-a{padding:0 13px 11px;}
 
 /* ================= 组卡 ================= */
 .deck-layout{display:grid;grid-template-columns:1fr 360px;gap:22px;align-items:start;}
@@ -366,10 +375,33 @@ a{color:var(--accent);}
 .card-tip .field{margin-bottom:10px;}
 .card-tip .field:last-child{margin-bottom:0;}
 
+/* 移动端：当前牌组面板做成常驻右侧的抽屉 */
+.deck-fab{display:none;}
+.deck-backdrop{display:none;}
 @media(max-width:760px){
   .deck-layout{grid-template-columns:1fr;}
-  .deck-side{position:static;}
   .card-tip{display:none !important;}
+
+  .deck-side{
+    position:fixed; top:0; right:0; bottom:0; z-index:62;
+    width:min(88vw,360px); transform:translateX(100%); transition:transform .25s ease;
+    overflow-y:auto; background:var(--bg); border-left:1px solid var(--line);
+    box-shadow:-10px 0 30px rgba(0,0,0,.55); padding:16px; border-radius:0;
+  }
+  .deck-side.open{transform:translateX(0);}
+
+  .deck-fab{
+    display:flex; align-items:center; gap:5px;
+    position:fixed; right:0; top:50%; transform:translateY(-50%); z-index:61;
+    background:var(--accent); color:var(--accent-ink); border:none;
+    border-radius:10px 0 0 10px; padding:11px 12px; font-weight:700; font-size:.86rem;
+    cursor:pointer; box-shadow:-2px 2px 12px rgba(0,0,0,.45);
+  }
+  .deck-backdrop{
+    position:fixed; inset:0; z-index:61; background:rgba(0,0,0,.5);
+    opacity:0; pointer-events:none; transition:opacity .25s;
+  }
+  .deck-backdrop.show{display:block; opacity:1; pointer-events:auto;}
 }
 
 /* ---- footer ---- */

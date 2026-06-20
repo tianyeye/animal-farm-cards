@@ -161,19 +161,30 @@ def md_to_html(md, kw):
 
 
 def faq_to_list(md, kw):
-    items, cur = [], None
+    items, cur, cat = [], None, ""
     for line in md.split("\n"):
-        if line.startswith("## "):
+        s = line.strip()
+        if s.startswith("@ "):          # 分类
+            cat = s[2:].strip()
+            continue
+        if line.startswith("## "):      # 问题
             if cur:
                 items.append(cur)
-            cur = {"q": inline(line[3:].strip(), kw), "a": []}
-        elif line.startswith("#"):
-            continue  # 注释
-        elif cur is not None and line.strip():
-            cur["a"].append(inline(line.strip(), kw))
+            cur = {"q": inline(line[3:].strip(), kw), "a": [], "cat": cat, "cards": []}
+            continue
+        if line.startswith("#"):        # 注释
+            continue
+        if cur is None or not s:
+            continue
+        m = re.match(r"^(?:卡牌|相关卡牌)[:：]\s*(.+)$", s)
+        if m:                            # 关联卡牌
+            cur["cards"] = [x.strip() for x in re.split(r"[,，、]", m.group(1)) if x.strip()]
+        else:                            # 答案文字
+            cur["a"].append(inline(s, kw))
     if cur:
         items.append(cur)
-    return [{"q": it["q"], "a": "<br>".join(it["a"])} for it in items]
+    return [{"q": it["q"], "a": "<br>".join(it["a"]), "cat": it["cat"], "cards": it["cards"]}
+            for it in items]
 
 
 # ===================================================== site.txt
