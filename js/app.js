@@ -48,7 +48,8 @@
       var kind = AF.cardKind(c);
       var node = el(
         '<div class="card" data-color="' + esc(c.color) + '" data-id="' + esc(c.id) + '">' +
-        '<div class="thumb">' + thumbHtml(c) + AF.roleRibbon(c) + "</div>" +
+        '<div class="thumb">' + thumbHtml(c) + AF.roleRibbon(c) +
+        (c.altImage ? '<span class="alt-badge">异画</span>' : "") + "</div>" +
         '<div class="meta"><div class="name">' + esc(c.name) + "</div>" +
         '<div class="sub"><span class="badge">' + esc(c.color) + "</span>" +
         '<span class="badge">' + (c.type === "function" ? "副卡·功能" : (c.role === "Leader" ? "主卡·角色" : "副卡·角色")) + "</span>" +
@@ -84,9 +85,17 @@
   var modalBody = document.getElementById("modal-body");
 
   function modalHtml(c) {
-    var imgHtml = c.image
-      ? '<img src="' + esc(AF.imgUrl(c.image)) + '" alt="' + esc(c.name) + '">'
-      : '<div class="noimg">暂无卡图</div>';
+    var imgHtml;
+    if (c.image) {
+      imgHtml = '<img id="m-card-img" src="' + esc(AF.imgUrl(c.image)) + '" alt="' + esc(c.name) + '">';
+      if (c.altImage) {
+        imgHtml += '<button class="alt-toggle" id="alt-toggle" type="button"' +
+          ' data-normal="' + esc(AF.imgUrl(c.image)) + '" data-alt="' + esc(AF.imgUrl(c.altImage)) +
+          '" data-showing="normal">⇆ 切换异画</button>';
+      }
+    } else {
+      imgHtml = '<div class="noimg">暂无卡图</div>';
+    }
 
     var body = AF.cardFieldsHtml(c);
 
@@ -157,6 +166,15 @@
     // 卡内 FAQ 折叠
     modalBody.querySelectorAll(".m-faq .faq-q").forEach(function (q) {
       q.addEventListener("click", function () { q.parentElement.classList.toggle("open"); });
+    });
+    // 异画切换
+    var at = modalBody.querySelector("#alt-toggle");
+    if (at) at.addEventListener("click", function () {
+      var img = modalBody.querySelector("#m-card-img");
+      var showingAlt = at.dataset.showing === "alt";
+      img.src = showingAlt ? at.dataset.normal : at.dataset.alt;
+      at.dataset.showing = showingAlt ? "normal" : "alt";
+      at.textContent = showingAlt ? "⇆ 切换异画" : "⇆ 切换原画";
     });
     // 反馈展开
     var toggle = modalBody.querySelector(".fb-toggle");

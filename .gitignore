@@ -1,3 +1,5 @@
 Thumbs.db
 .DS_Store
 node_modules/
+# 异画原图（未裁切/未加水印的源，勿提交/勿公开，避免泄露无水印原画）
+assets/*异画*.png

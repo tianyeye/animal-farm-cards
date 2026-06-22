@@ -1,10 +1,10 @@
 // 由 build.py 从 config/ 自动生成，请勿手改。改内容请编辑 config/ 后重跑 build.py
 window.SITE = {
-  "title": "动物庄园 · 官方qq群：1084138439",
-  "subtitle": "卡牌图鉴 · 自助组卡 · 规则书 · 常见问题",
+  "title": "动物庄园 · 查卡",
+  "subtitle": "卡牌图鉴 · 规则书 · 常见问题",
   "feedback_email": "dogtian@foxmail.com",
-  "footer1": "《动物庄园》是一款 2 人卡牌对战游戏。本站为试用版信息工具。",
-  "footer2": "发现卡牌描述有误或游玩过程中有任何问题，点开任意卡牌后使用「反馈问题」即可告诉作者。官方qq群：1084138439",
+  "footer1": "《动物庄园》是一款 2 人卡牌对战游戏。本站为非官方查卡工具。",
+  "footer2": "发现卡牌描述有误？点开任意卡牌右下角「反馈问题」即可告诉作者。",
   "watermark1": "动物庄园·试玩版本",
   "watermark2": "官方qq群：1084138439",
   "cdn_base": "https://cdn.jsdelivr.net/gh/tianyeye/animal-farm-cards@main"

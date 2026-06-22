@@ -239,7 +239,8 @@ def build_cards():
             "billEffect": clean(row["议案效果"]), "bound": clean(row["绑定卡"]),
         })
 
-    # 按编号匹配已压缩好的 WebP 卡图（assets/cards/<编号>.webp）
+    # 按编号匹配已压缩好的 WebP 卡图（assets/cards/<编号>.webp）；
+    # 若存在 <编号>_alt.webp 则该卡有异画，写入 altImage（网页可切换查看）。
     by_id = {c["id"]: c for c in cards}
     have = 0
     for cid, c in by_id.items():
@@ -248,6 +249,8 @@ def build_cards():
             have += 1
         else:
             c["image"] = None
+        alt = os.path.join(IMG_OUT_DIR, cid + "_alt.webp")
+        c["altImage"] = ("assets/cards/" + cid + "_alt.webp") if os.path.exists(alt) else None
 
     for c in cards:
         pid = pair_id(c["id"])

@@ -97,4 +97,39 @@ for (const [id, src] of Object.entries(IMAGE_MAP)) {
 console.log(`已生成 ${ok} 张带水印 WebP（质量 ${QUALITY}）`);
 console.log(`水印：「${WM1}」/「${WM2}」`);
 console.log(`体积：${(before / 1048576).toFixed(0)}MB -> ${(after / 1048576).toFixed(1)}MB`);
+
+// ================= 异画卡 =================
+// 异画原图带 3mm 出血（成品 63×88mm，含血 69×94mm），放在 assets/ 下。
+// 处理：裁掉四周出血 → 圆角(≈3mm) → 打水印 → 输出 assets/cards/<编号>_alt.webp
+const FW = 744, FH = 1039;           // 成品像素（63×88mm@300ppi），与普通卡一致
+const RADIUS = 34;                   // 圆角半径(≈3mm)
+const ALT_SRC_DIR = path.join(ROOT, "assets");
+const ALT_MAP = {
+  Purple_Base_Leader_01: "紫色背景-异画.png", // 拿破仑
+  Yellow_Base_Leader_01: "黄色背景-异画.png", // 莫莉
+};
+function roundMaskSvg(w, h, r) {
+  return `<svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="${w}" height="${h}" rx="${r}" ry="${r}" fill="#fff"/></svg>`;
+}
+let altOk = 0;
+for (const [id, file] of Object.entries(ALT_MAP)) {
+  const sp = path.join(ALT_SRC_DIR, file);
+  if (!fs.existsSync(sp)) { console.warn("! 缺少异画原图:", file); continue; }
+  const m = await sharp(sp).metadata();
+  // 按比例裁掉 3mm 出血（成品占 63/69 宽、88/94 高），居中
+  const ew = Math.round(m.width * 63 / 69), eh = Math.round(m.height * 88 / 94);
+  const left = Math.round((m.width - ew) / 2), top = Math.round((m.height - eh) / 2);
+  const dp = path.join(OUT_DIR, id + "_alt.webp");
+  await sharp(sp)
+    .extract({ left, top, width: ew, height: eh })
+    .resize(FW, FH)
+    .composite([
+      { input: Buffer.from(watermarkSvg(FW, FH)), top: 0, left: 0 },          // 水印
+      { input: Buffer.from(roundMaskSvg(FW, FH, RADIUS)), blend: "dest-in" },  // 圆角裁切
+    ])
+    .webp({ quality: QUALITY, effort: 6 })
+    .toFile(dp);
+  altOk++;
+}
+console.log(`异画卡：生成 ${altOk} 张（裁出血+圆角+水印）`);
 console.log("接着运行 python build.py 让网站引用新图（用 python build.py --images 可一步到位）。");
