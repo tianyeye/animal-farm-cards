@@ -4,7 +4,7 @@
 title = 动物庄园 · 官方qq群：1084138439
 subtitle = 卡牌图鉴 · 规则书 · 常见问题
 feedback_email = dogtian@foxmail.com
-footer1 = 《动物庄园》是一款 2 人卡牌对战游戏。本站为非官方查卡工具。
+footer1 = 《动物庄园》是一款 2/4 人卡牌对战游戏。本站为非正式版的试运行查卡工具。
 footer2 = 发现卡牌描述有误？点开任意卡牌右下角「反馈问题」即可告诉作者。
 
 # 卡图水印（两行）。改完需重新生成卡图：python build.py --images
