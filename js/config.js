@@ -1,6 +1,6 @@
 // 由 build.py 从 config/ 自动生成，请勿手改。改内容请编辑 config/ 后重跑 build.py
 window.SITE = {
-  "title": "动物庄园 · 查卡",
+  "title": "动物庄园 · 官方qq群：1084138439",
   "subtitle": "卡牌图鉴 · 规则书 · 常见问题",
   "feedback_email": "dogtian@foxmail.com",
   "footer1": "《动物庄园》是一款 2 人卡牌对战游戏。本站为非官方查卡工具。",
