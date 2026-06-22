@@ -377,7 +377,7 @@ window.CARDS = [
     "declEffect": "再次执行你的上一个行动效果。",
     "bound": "",
     "tags": "",
-    "image": null,
+    "image": "assets/cards/Yellow_SP_Leader_01.webp",
     "altImage": null,
     "pairId": "Yellow_SP_Sub_01"
   },
@@ -394,7 +394,7 @@ window.CARDS = [
     "billName": "反移民政策",
     "billEffect": "在场角色较多的一方无法移动，且不能打出角色进场。",
     "bound": "唐纳德鸭",
-    "image": null,
+    "image": "assets/cards/Yellow_SP_Sub_01.webp",
     "altImage": null,
     "pairId": "Yellow_SP_Leader_01"
   },
@@ -955,7 +955,7 @@ window.CARDS = [
     "declEffect": "{独裁}；从牌堆中检索1张猪角色加入手牌。",
     "bound": "肥头二号",
     "tags": "",
-    "image": null,
+    "image": "assets/cards/Purple_SP_Leader_01.webp",
     "altImage": null,
     "pairId": "Purple_SP_Sub_01"
   },
@@ -974,7 +974,7 @@ window.CARDS = [
     "declEffect": "{独裁}；本回合所有角色不能发动宣言。",
     "bound": "肥头",
     "tags": "",
-    "image": null,
+    "image": "assets/cards/Purple_SP_Sub_01.webp",
     "altImage": null,
     "pairId": "Purple_SP_Leader_01"
   }

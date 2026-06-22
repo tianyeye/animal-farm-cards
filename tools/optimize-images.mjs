@@ -132,4 +132,32 @@ for (const [id, file] of Object.entries(ALT_MAP)) {
   altOk++;
 }
 console.log(`异画卡：生成 ${altOk} 张（裁出血+圆角+水印）`);
+
+// ================= 需补圆角的新卡 / 调整卡（6.22 导出为直角，744×1039 无出血）=================
+// 这些卡来自后期导出（直角），统一做 3mm 圆角 + 水印；会覆盖 IMAGE_MAP 里的旧图，故放最后。
+const ROUND_SRC_DIR = "h:/2025-2026项目/动物庄园/6.22";
+const ROUND_RADIUS = 35;             // 3mm @ 300ppi ≈ 35px
+const ROUND_MAP = {
+  Yellow_SP_Leader_01: "模板21.png",    // 唐纳德鸭（SP）
+  Yellow_SP_Sub_01:    "模板22.png",    // 永远在赢/边境墙（SP）
+  Purple_SP_Leader_01: "模板53.png",    // 肥头（SP）
+  Purple_SP_Sub_01:    "模板54.png",    // 肥头二世（SP）
+  Yellow_Base_Leader_02: "模板13.png",  // 那只猫（调整）
+  Yellow_Base_Leader_04: "模板17.png",  // 波拉尼奥（调整）
+};
+let roundOk = 0;
+for (const [id, file] of Object.entries(ROUND_MAP)) {
+  const sp = path.join(ROUND_SRC_DIR, file);
+  if (!fs.existsSync(sp)) { console.warn("! 缺少待圆角卡图:", file); continue; }
+  const m = await sharp(sp).metadata();
+  await sharp(sp)
+    .composite([
+      { input: Buffer.from(watermarkSvg(m.width, m.height)), top: 0, left: 0 },             // 水印
+      { input: Buffer.from(roundMaskSvg(m.width, m.height, ROUND_RADIUS)), blend: "dest-in" }, // 圆角
+    ])
+    .webp({ quality: QUALITY, effort: 6 })
+    .toFile(path.join(OUT_DIR, id + ".webp"));
+  roundOk++;
+}
+console.log(`补圆角卡：生成 ${roundOk} 张（圆角+水印；含 SP 与调整卡）`);
 console.log("接着运行 python build.py 让网站引用新图（用 python build.py --images 可一步到位）。");
